@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Your Name — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Your Name: selected projects, experience, and contact."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Your Name — Portfolio" />
+    <meta
+      property="og:description"
+      content="Selected projects, experience, and contact."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23000' d='M14 48V16h12c8 0 14 6 14 14s-6 18-14 18H14zm10-8c6 0 10-4 10-10s-4-6-10-6h-2v16h2z'/%3E%3Cpath fill='%23000' d='M38 48l12-32h6L44 48h-6z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true">◼︎</span>
+          <span class="brand-name" id="brandName">Your Name</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+          <button id="themeToggle" class="theme-toggle" type="button">
+            <span class="theme-toggle-label">Theme</span>
+            <span class="theme-toggle-dot" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <section id="top" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow" id="heroEyebrow">Portfolio</p>
+            <h1 class="hero-title" id="heroTitle">Your Name</h1>
+            <p class="hero-subtitle" id="heroSubtitle">
+              I build thoughtful products with clean design and strong engineering.
+            </p>
+
+            <div class="hero-cta">
+              <a class="button" id="primaryCta" href="#projects">View projects</a>
+              <a class="button button-secondary" id="secondaryCta" href="#contact"
+                >Get in touch</a
+              >
+            </div>
+
+            <div class="hero-meta" id="quickLinks" aria-label="Quick links"></div>
+          </div>
+
+          <aside class="hero-card" aria-label="Highlights">
+            <div class="hero-card-inner">
+              <p class="hero-card-title">Now</p>
+              <p class="hero-card-text" id="nowText">
+                Shipping small, high-quality experiences.
+              </p>
+              <div class="divider" role="presentation"></div>
+              <p class="hero-card-title">Focus</p>
+              <ul class="pill-list" id="focusPills"></ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Selected projects</h2>
+            <p class="muted">
+              A small set of work I’m proud of. Each project has a short note on
+              intent, trade-offs, and outcomes.
+            </p>
+          </div>
+          <div class="cards" id="projectsGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container two-col">
+          <div>
+            <h2>About</h2>
+            <p class="muted" id="aboutLead">
+              I’m a product-minded engineer who cares about details, clarity, and
+              finishing.
+            </p>
+          </div>
+          <div class="prose" id="aboutBody"></div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Experience</h2>
+            <p class="muted">What I’ve worked on recently.</p>
+          </div>
+          <ol class="timeline" id="experienceTimeline"></ol>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container contact">
+          <div class="contact-copy">
+            <h2>Contact</h2>
+            <p class="muted" id="contactBlurb">
+              If you’re building something and want help, I’d love to chat.
+            </p>
+          </div>
+          <div class="contact-actions" id="contactActions"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="muted">
+          © <span id="year"></span> <span id="footerName">Your Name</span>. Built
+          with plain HTML/CSS/JS.
+        </p>
+        <a class="muted" href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <noscript>
+      <div class="container noscript">
+        This site uses a small script to render content from a JSON file. Please
+        enable JavaScript to view projects and experience.
+      </div>
+    </noscript>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
