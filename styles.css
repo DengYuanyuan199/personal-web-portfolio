@@ -200,11 +200,13 @@ button {
 /* ── Category page ── */
 
 .page-category {
-  overflow-x: hidden;
+  overflow: hidden;
+  height: 100%;
 }
 
 .category-main {
-  padding-top: 56px;
+  height: 100vh;
+  padding-top: 0;
 }
 
 .visually-hidden {
@@ -221,51 +223,74 @@ button {
 
 .project-list {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  gap: 3px;
 }
 
 .project-block {
   position: relative;
-  width: 100%;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
   overflow: hidden;
+  transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-list:hover .project-block {
+  flex: 0.55 1 0;
+}
+
+.project-list:hover .project-block:hover {
+  flex: 2.35 1 0;
 }
 
 .project-image {
   display: block;
   width: 100%;
-  height: auto;
-  min-height: 55vh;
+  height: 100%;
   object-fit: cover;
-  vertical-align: middle;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-block:hover .project-image {
+  transform: scale(1.03);
 }
 
 .project-caption {
   position: absolute;
   left: 0;
   bottom: 0;
-  padding: 28px 32px;
+  padding: 24px 22px;
   color: #ffffff;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.18) 55%,
     transparent 100%
   );
   width: 100%;
   pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-block:hover .project-caption {
+  white-space: normal;
 }
 
 .project-name {
   margin: 0;
-  font-size: clamp(18px, 2.5vw, 26px);
+  font-size: clamp(14px, 1.8vw, 24px);
   font-weight: 400;
   letter-spacing: 0.04em;
 }
 
 .project-meta {
-  margin: 6px 0 0;
-  font-size: clamp(12px, 1.5vw, 14px);
+  margin: 5px 0 0;
+  font-size: clamp(11px, 1.1vw, 13px);
   letter-spacing: 0.06em;
   opacity: 0.85;
   font-weight: 300;
@@ -316,11 +341,20 @@ button {
   }
 
   .project-caption {
-    padding: 20px 18px;
+    padding: 16px 12px;
   }
 
-  .project-image {
-    min-height: 45vh;
+  .project-list:hover .project-block,
+  .project-list:hover .project-block:hover {
+    flex: 1 1 0;
+  }
+
+  .project-list.is-active .project-block {
+    flex: 0.55 1 0;
+  }
+
+  .project-list.is-active .project-block.is-expanded {
+    flex: 2.35 1 0;
   }
 }
 

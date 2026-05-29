@@ -34,6 +34,29 @@ function renderProjects(projects, lang) {
 
     list.append(block);
   }
+
+  initProjectExpand(list);
+}
+
+function initProjectExpand(list) {
+  if (!list || list.dataset.expandInit) return;
+  list.dataset.expandInit = "true";
+
+  const blocks = () => [...list.querySelectorAll(".project-block")];
+
+  list.addEventListener(
+    "click",
+    (e) => {
+      const block = e.target.closest(".project-block");
+      if (!block) return;
+
+      const expanded = block.classList.contains("is-expanded");
+      blocks().forEach((b) => b.classList.remove("is-expanded"));
+      list.classList.toggle("is-active", !expanded);
+      if (!expanded) block.classList.add("is-expanded");
+    },
+    { passive: true },
+  );
 }
 
 async function main() {
