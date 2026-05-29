@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <title>作品集</title>
-    <meta name="description" content="设计作品集 — 声音交互、交互装置、未来设计、包容性设计、品牌设计" />
+    <meta name="description" content="设计作品集项目展示" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="page-home">
+  <body class="page-category">
     <header class="top-bar">
       <div class="top-bar-left">
         <button id="langToggle" class="lang-toggle" type="button" aria-label="切换语言"></button>
       </div>
       <div class="top-bar-right">
-        <span id="siteName" class="site-name"></span>
+        <a id="backHome" class="back-home" href="./"></a>
       </div>
     </header>
 
-    <main class="home-main">
-      <div id="bubbleStage" class="bubble-stage" aria-label="作品分类"></div>
+    <main class="category-main">
+      <h1 id="categoryTitle" class="category-title visually-hidden"></h1>
+      <div id="projectList" class="project-list" aria-live="polite"></div>
     </main>
 
     <noscript>
       <p class="noscript">请启用 JavaScript 以浏览作品集。</p>
     </noscript>
 
-    <script type="module" src="./home.js"></script>
+    <script type="module" src="./category.js"></script>
   </body>
 </html>
