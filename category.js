@@ -4,6 +4,14 @@ function getCategoryId() {
   return new URLSearchParams(window.location.search).get("c");
 }
 
+function findKeyword(data, categoryId) {
+  for (const hub of data.hubs ?? []) {
+    const keyword = (hub.keywords ?? []).find((kw) => kw.id === categoryId);
+    if (keyword) return { hub, keyword };
+  }
+  return null;
+}
+
 function renderProjects(projects, lang) {
   const list = document.getElementById("projectList");
   if (!list) return;
@@ -73,19 +81,20 @@ async function main() {
     return;
   }
 
-  const category = (data.categories ?? []).find((c) => c.id === categoryId);
-  if (!category) {
+  const found = findKeyword(data, categoryId);
+  if (!found) {
     window.location.href = "./";
     return;
   }
 
+  const { keyword } = found;
   const ui = data.ui ?? {};
   const titleEl = document.getElementById("categoryTitle");
 
   function apply(lang) {
     setupTopBar(data, lang, { showBack: true });
-    if (titleEl) titleEl.textContent = t(category.label, lang);
-    renderProjects(category.projects ?? [], lang);
+    if (titleEl) titleEl.textContent = t(keyword.label, lang);
+    renderProjects(keyword.projects ?? [], lang);
   }
 
   const lang = initLangToggle(ui, apply);

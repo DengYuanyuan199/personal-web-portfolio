@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": { "zh": "你的名字", "en": "Your Name" },
+    "name": { "zh": "邓媛元", "en": "Yuanyuan Deng" },
     "title": { "zh": "作品集", "en": "Portfolio" }
   },
   "ui": {
@@ -8,169 +8,266 @@
     "langZh": "中",
     "langEn": "EN"
   },
-  "categories": [
+  "hubs": [
     {
-      "id": "sound-interaction",
-      "label": { "zh": "声音交互", "en": "Sound Interaction" },
-      "size": "xl",
-      "position": { "top": "22%", "left": "12%" },
-      "delay": "0s",
-      "projects": [
+      "id": "art-practice",
+      "label": { "zh": "艺术实践", "en": "Art Practice" },
+      "theme": "blue",
+      "keywords": [
         {
-          "name": { "zh": "回声之境", "en": "Echo Realm" },
-          "year": "2025",
-          "keywords": { "zh": ["声音", "空间", "沉浸"], "en": ["Sound", "Space", "Immersive"] },
-          "image": "./images/placeholders/sound-1.svg"
+          "id": "sculpture",
+          "position": "tl",
+          "label": { "zh": "雕塑", "en": "Sculpture" },
+          "projects": [
+            {
+              "name": { "zh": "形体研究 I", "en": "Form Study I" },
+              "year": "2025",
+              "keywords": { "zh": ["雕塑", "石膏", "空间"], "en": ["Sculpture", "Plaster", "Space"] },
+              "image": "./images/placeholders/sound-1.svg"
+            },
+            {
+              "name": { "zh": "形体研究 II", "en": "Form Study II" },
+              "year": "2024",
+              "keywords": { "zh": ["铸造", "材料", "体量"], "en": ["Casting", "Material", "Volume"] },
+              "image": "./images/placeholders/sound-2.svg"
+            },
+            {
+              "name": { "zh": "临时纪念碑", "en": "Temporary Monument" },
+              "year": "2024",
+              "keywords": { "zh": ["公共", "装置", "现场"], "en": ["Public", "Installation", "Site"] },
+              "image": "./images/placeholders/sound-3.svg"
+            },
+            {
+              "name": { "zh": "负空间", "en": "Negative Space" },
+              "year": "2023",
+              "keywords": { "zh": ["木雕", "光影", "实验"], "en": ["Wood", "Light", "Experiment"] },
+              "image": "./images/placeholders/sound-4.svg"
+            }
+          ]
         },
         {
-          "name": { "zh": "触觉声波", "en": "Tactile Waves" },
-          "year": "2024",
-          "keywords": { "zh": ["触觉", "反馈", "交互"], "en": ["Haptic", "Feedback", "Interaction"] },
-          "image": "./images/placeholders/sound-2.svg"
+          "id": "sound",
+          "position": "tr",
+          "label": { "zh": "声音", "en": "Sound" },
+          "projects": [
+            {
+              "name": { "zh": "回声之境", "en": "Echo Realm" },
+              "year": "2025",
+              "keywords": { "zh": ["声音", "空间", "沉浸"], "en": ["Sound", "Space", "Immersive"] },
+              "image": "./images/placeholders/install-1.svg"
+            },
+            {
+              "name": { "zh": "城市声景", "en": "Urban Soundscape" },
+              "year": "2024",
+              "keywords": { "zh": ["田野录音", "地图", "叙事"], "en": ["Field recording", "Mapping", "Narrative"] },
+              "image": "./images/placeholders/install-2.svg"
+            },
+            {
+              "name": { "zh": "共振装置", "en": "Resonance Device" },
+              "year": "2024",
+              "keywords": { "zh": ["装置", "物理", "实验"], "en": ["Installation", "Physical", "Experiment"] },
+              "image": "./images/placeholders/install-3.svg"
+            },
+            {
+              "name": { "zh": "白噪音", "en": "White Noise" },
+              "year": "2023",
+              "keywords": { "zh": ["生成", "表演", "听觉"], "en": ["Generative", "Performance", "Listening"] },
+              "image": "./images/placeholders/install-4.svg"
+            }
+          ]
         },
         {
-          "name": { "zh": "城市声景", "en": "Urban Soundscape" },
-          "year": "2024",
-          "keywords": { "zh": ["田野录音", "地图", "叙事"], "en": ["Field recording", "Mapping", "Narrative"] },
-          "image": "./images/placeholders/sound-3.svg"
+          "id": "game",
+          "position": "bl",
+          "label": { "zh": "游戏", "en": "Game" },
+          "projects": [
+            {
+              "name": { "zh": "迷失回路", "en": "Lost Circuit" },
+              "year": "2025",
+              "keywords": { "zh": ["独立游戏", "叙事", "像素"], "en": ["Indie game", "Narrative", "Pixel"] },
+              "image": "./images/placeholders/future-1.svg"
+            },
+            {
+              "name": { "zh": "重力谜题", "en": "Gravity Puzzle" },
+              "year": "2024",
+              "keywords": { "zh": ["机制", "关卡", "原型"], "en": ["Mechanics", "Level", "Prototype"] },
+              "image": "./images/placeholders/future-2.svg"
+            },
+            {
+              "name": { "zh": "多人桌游", "en": "Board Game" },
+              "year": "2024",
+              "keywords": { "zh": ["社交", "规则", "纸面"], "en": ["Social", "Rules", "Analog"] },
+              "image": "./images/placeholders/future-3.svg"
+            },
+            {
+              "name": { "zh": "梦境行走", "en": "Dream Walk" },
+              "year": "2023",
+              "keywords": { "zh": ["探索", "氛围", "Unity"], "en": ["Exploration", "Atmosphere", "Unity"] },
+              "image": "./images/placeholders/future-4.svg"
+            }
+          ]
         },
         {
-          "name": { "zh": "共振装置", "en": "Resonance Device" },
-          "year": "2023",
-          "keywords": { "zh": ["装置", "物理", "实验"], "en": ["Installation", "Physical", "Experiment"] },
-          "image": "./images/placeholders/sound-4.svg"
+          "id": "mixed-media",
+          "position": "br",
+          "label": { "zh": "综合材料", "en": "Mixed Media" },
+          "projects": [
+            {
+              "name": { "zh": "层叠记忆", "en": "Layered Memory" },
+              "year": "2025",
+              "keywords": { "zh": ["拼贴", "档案", "手工"], "en": ["Collage", "Archive", "Craft"] },
+              "image": "./images/placeholders/inclusive-1.svg"
+            },
+            {
+              "name": { "zh": "织物与代码", "en": "Fabric & Code" },
+              "year": "2024",
+              "keywords": { "zh": ["纺织", "交互", "混合"], "en": ["Textile", "Interactive", "Hybrid"] },
+              "image": "./images/placeholders/inclusive-2.svg"
+            },
+            {
+              "name": { "zh": "物性研究", "en": "Material Study" },
+              "year": "2024",
+              "keywords": { "zh": ["样本", "实验", "触感"], "en": ["Sample", "Experiment", "Tactile"] },
+              "image": "./images/placeholders/inclusive-3.svg"
+            },
+            {
+              "name": { "zh": "废墟采集", "en": "Ruin Collection" },
+              "year": "2023",
+              "keywords": { "zh": ["现成物", "田野", "装置"], "en": ["Found object", "Field", "Installation"] },
+              "image": "./images/placeholders/inclusive-4.svg"
+            }
+          ]
         }
       ]
     },
     {
-      "id": "interactive-installation",
-      "label": { "zh": "交互装置", "en": "Interactive Installation" },
-      "size": "lg",
-      "position": { "top": "58%", "left": "28%" },
-      "delay": "1.2s",
-      "projects": [
+      "id": "interaction-design",
+      "label": { "zh": "交互设计", "en": "Interaction Design" },
+      "theme": "teal",
+      "keywords": [
         {
-          "name": { "zh": "光之回路", "en": "Light Circuit" },
-          "year": "2025",
-          "keywords": { "zh": ["光影", "传感器", "公共空间"], "en": ["Light", "Sensor", "Public space"] },
-          "image": "./images/placeholders/install-1.svg"
+          "id": "hardware-interaction",
+          "position": "tl",
+          "label": { "zh": "硬件交互", "en": "Hardware Interaction" },
+          "projects": [
+            {
+              "name": { "zh": "光之回路", "en": "Light Circuit" },
+              "year": "2025",
+              "keywords": { "zh": ["光影", "传感器", "公共空间"], "en": ["Light", "Sensor", "Public space"] },
+              "image": "./images/placeholders/brand-1.svg"
+            },
+            {
+              "name": { "zh": "流动边界", "en": "Fluid Boundary" },
+              "year": "2024",
+              "keywords": { "zh": ["运动捕捉", "投影", "身体"], "en": ["Motion capture", "Projection", "Body"] },
+              "image": "./images/placeholders/brand-2.svg"
+            },
+            {
+              "name": { "zh": "呼吸之塔", "en": "Breathing Tower" },
+              "year": "2024",
+              "keywords": { "zh": ["生物反馈", "雕塑", "冥想"], "en": ["Biofeedback", "Sculpture", "Meditation"] },
+              "image": "./images/placeholders/brand-3.svg"
+            },
+            {
+              "name": { "zh": "触觉界面", "en": "Tactile Interface" },
+              "year": "2023",
+              "keywords": { "zh": ["Arduino", "触感", "原型"], "en": ["Arduino", "Haptic", "Prototype"] },
+              "image": "./images/placeholders/brand-4.svg"
+            }
+          ]
         },
         {
-          "name": { "zh": "流动边界", "en": "Fluid Boundary" },
-          "year": "2024",
-          "keywords": { "zh": ["运动捕捉", "投影", "身体"], "en": ["Motion capture", "Projection", "Body"] },
-          "image": "./images/placeholders/install-2.svg"
+          "id": "ui-design",
+          "position": "tr",
+          "label": { "zh": "界面设计", "en": "UI Design" },
+          "projects": [
+            {
+              "name": { "zh": "健康追踪", "en": "Health Tracker" },
+              "year": "2025",
+              "keywords": { "zh": ["移动端", "数据", "可视化"], "en": ["Mobile", "Data", "Visualization"] },
+              "image": "./images/placeholders/sound-1.svg"
+            },
+            {
+              "name": { "zh": "音乐播放器", "en": "Music Player" },
+              "year": "2024",
+              "keywords": { "zh": ["界面", "动效", "体验"], "en": ["Interface", "Motion", "Experience"] },
+              "image": "./images/placeholders/sound-2.svg"
+            },
+            {
+              "name": { "zh": "编辑器工具", "en": "Editor Tool" },
+              "year": "2024",
+              "keywords": { "zh": ["工具", "效率", "系统"], "en": ["Tool", "Productivity", "System"] },
+              "image": "./images/placeholders/sound-3.svg"
+            },
+            {
+              "name": { "zh": "仪表盘", "en": "Dashboard" },
+              "year": "2023",
+              "keywords": { "zh": ["B端", "信息架构", "组件"], "en": ["B2B", "IA", "Components"] },
+              "image": "./images/placeholders/sound-4.svg"
+            }
+          ]
         },
         {
-          "name": { "zh": "记忆碎片", "en": "Memory Fragments" },
-          "year": "2024",
-          "keywords": { "zh": ["AR", "档案", "参与式"], "en": ["AR", "Archive", "Participatory"] },
-          "image": "./images/placeholders/install-3.svg"
+          "id": "inclusive-design",
+          "position": "bl",
+          "label": { "zh": "包容性设计", "en": "Inclusive Design" },
+          "projects": [
+            {
+              "name": { "zh": "无障碍导览", "en": "Accessible Guide" },
+              "year": "2025",
+              "keywords": { "zh": ["无障碍", "导航", "博物馆"], "en": ["Accessibility", "Wayfinding", "Museum"] },
+              "image": "./images/placeholders/install-1.svg"
+            },
+            {
+              "name": { "zh": "多感官阅读", "en": "Multisensory Reading" },
+              "year": "2024",
+              "keywords": { "zh": ["视障", "触觉", "出版"], "en": ["Visual impairment", "Tactile", "Publishing"] },
+              "image": "./images/placeholders/install-2.svg"
+            },
+            {
+              "name": { "zh": "社区共创", "en": "Community Co-create" },
+              "year": "2024",
+              "keywords": { "zh": ["参与", "本地化", "工具包"], "en": ["Participation", "Localization", "Toolkit"] },
+              "image": "./images/placeholders/install-3.svg"
+            },
+            {
+              "name": { "zh": "适老化界面", "en": "Aging-friendly UI" },
+              "year": "2023",
+              "keywords": { "zh": ["老年", "健康", "数字产品"], "en": ["Aging", "Health", "Digital product"] },
+              "image": "./images/placeholders/install-4.svg"
+            }
+          ]
         },
         {
-          "name": { "zh": "呼吸之塔", "en": "Breathing Tower" },
-          "year": "2023",
-          "keywords": { "zh": ["生物反馈", "雕塑", "冥想"], "en": ["Biofeedback", "Sculpture", "Meditation"] },
-          "image": "./images/placeholders/install-4.svg"
-        }
-      ]
-    },
-    {
-      "id": "future-design",
-      "label": { "zh": "未来设计", "en": "Future Design" },
-      "size": "xl",
-      "position": { "top": "18%", "right": "14%" },
-      "delay": "0.6s",
-      "projects": [
-        {
-          "name": { "zh": "明日栖居", "en": "Tomorrow's Habitat" },
-          "year": "2025",
-          "keywords": { "zh": ["推测设计", "生态", "居住"], "en": ["Speculative", "Ecology", "Living"] },
-          "image": "./images/placeholders/future-1.svg"
-        },
-        {
-          "name": { "zh": "气候界面", "en": "Climate Interface" },
-          "year": "2024",
-          "keywords": { "zh": ["数据可视化", "预警", "城市"], "en": ["Data viz", "Alert", "Urban"] },
-          "image": "./images/placeholders/future-2.svg"
-        },
-        {
-          "name": { "zh": "共生系统", "en": "Symbiotic System" },
-          "year": "2024",
-          "keywords": { "zh": ["生物设计", "材料", "循环"], "en": ["Biodesign", "Material", "Circular"] },
-          "image": "./images/placeholders/future-3.svg"
-        },
-        {
-          "name": { "zh": "星际驿站", "en": "Orbital Station" },
-          "year": "2023",
-          "keywords": { "zh": ["航天", "服务设计", "叙事"], "en": ["Space", "Service design", "Narrative"] },
-          "image": "./images/placeholders/future-4.svg"
-        }
-      ]
-    },
-    {
-      "id": "inclusive-design",
-      "label": { "zh": "包容性设计", "en": "Inclusive Design" },
-      "size": "md",
-      "position": { "bottom": "28%", "left": "18%" },
-      "delay": "1.8s",
-      "projects": [
-        {
-          "name": { "zh": "无障碍导览", "en": "Accessible Guide" },
-          "year": "2025",
-          "keywords": { "zh": ["无障碍", "导航", "博物馆"], "en": ["Accessibility", "Wayfinding", "Museum"] },
-          "image": "./images/placeholders/inclusive-1.svg"
-        },
-        {
-          "name": { "zh": "多感官阅读", "en": "Multisensory Reading" },
-          "year": "2024",
-          "keywords": { "zh": ["视障", "触觉", "出版"], "en": ["Visual impairment", "Tactile", "Publishing"] },
-          "image": "./images/placeholders/inclusive-2.svg"
-        },
-        {
-          "name": { "zh": "社区共创", "en": "Community Co-create" },
-          "year": "2024",
-          "keywords": { "zh": ["参与", "本地化", "工具包"], "en": ["Participation", "Localization", "Toolkit"] },
-          "image": "./images/placeholders/inclusive-3.svg"
-        },
-        {
-          "name": { "zh": "适老化界面", "en": "Aging-friendly UI" },
-          "year": "2023",
-          "keywords": { "zh": ["老年", "健康", "数字产品"], "en": ["Aging", "Health", "Digital product"] },
-          "image": "./images/placeholders/inclusive-4.svg"
-        }
-      ]
-    },
-    {
-      "id": "brand-design",
-      "label": { "zh": "品牌设计", "en": "Brand Design" },
-      "size": "lg",
-      "position": { "bottom": "22%", "right": "16%" },
-      "delay": "2.4s",
-      "projects": [
-        {
-          "name": { "zh": "新锐咖啡", "en": "Nova Coffee" },
-          "year": "2025",
-          "keywords": { "zh": ["视觉识别", "包装", "空间"], "en": ["Visual identity", "Packaging", "Space"] },
-          "image": "./images/placeholders/brand-1.svg"
-        },
-        {
-          "name": { "zh": "独立唱片", "en": "Indie Records" },
-          "year": "2024",
-          "keywords": { "zh": ["音乐", "封面", "动态图形"], "en": ["Music", "Cover art", "Motion"] },
-          "image": "./images/placeholders/brand-2.svg"
-        },
-        {
-          "name": { "zh": "文化基金会", "en": "Culture Foundation" },
-          "year": "2024",
-          "keywords": { "zh": ["非营利", "品牌系统", "出版物"], "en": ["Nonprofit", "Brand system", "Publication"] },
-          "image": "./images/placeholders/brand-3.svg"
-        },
-        {
-          "name": { "zh": "科技初创", "en": "Tech Startup" },
-          "year": "2023",
-          "keywords": { "zh": ["Logo", "网站", "Pitch deck"], "en": ["Logo", "Website", "Pitch deck"] },
-          "image": "./images/placeholders/brand-4.svg"
+          "id": "future-design",
+          "position": "br",
+          "label": { "zh": "未来设计", "en": "Future Design" },
+          "projects": [
+            {
+              "name": { "zh": "明日栖居", "en": "Tomorrow's Habitat" },
+              "year": "2025",
+              "keywords": { "zh": ["推测设计", "生态", "居住"], "en": ["Speculative", "Ecology", "Living"] },
+              "image": "./images/placeholders/future-1.svg"
+            },
+            {
+              "name": { "zh": "气候界面", "en": "Climate Interface" },
+              "year": "2024",
+              "keywords": { "zh": ["数据可视化", "预警", "城市"], "en": ["Data viz", "Alert", "Urban"] },
+              "image": "./images/placeholders/future-2.svg"
+            },
+            {
+              "name": { "zh": "共生系统", "en": "Symbiotic System" },
+              "year": "2024",
+              "keywords": { "zh": ["生物设计", "材料", "循环"], "en": ["Biodesign", "Material", "Circular"] },
+              "image": "./images/placeholders/future-3.svg"
+            },
+            {
+              "name": { "zh": "星际驿站", "en": "Orbital Station" },
+              "year": "2023",
+              "keywords": { "zh": ["航天", "服务设计", "叙事"], "en": ["Space", "Service design", "Narrative"] },
+              "image": "./images/placeholders/future-4.svg"
+            }
+          ]
         }
       ]
     }
