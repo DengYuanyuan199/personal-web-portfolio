@@ -6,12 +6,26 @@ function getVisibleCount() {
     : 4;
 }
 
+function getPanelWidth(viewport) {
+  const visible = getVisibleCount();
+  const gap = 3;
+  return (viewport.clientWidth - (visible - 1) * gap) / visible;
+}
+
 function getCategoryId() {
   return new URLSearchParams(window.location.search).get("c");
 }
 
 function findHub(data, hubId) {
   return (data.hubs ?? []).find((h) => h.id === hubId) ?? null;
+}
+
+function clearInteraction(track) {
+  if (!track) return;
+  track.classList.remove("is-interacting");
+  track.querySelectorAll(".project-block").forEach((b) => {
+    b.classList.remove("is-expanded", "is-dimmed");
+  });
 }
 
 function buildProjectBlock(project, lang) {
@@ -38,26 +52,57 @@ function buildProjectBlock(project, lang) {
   ]);
 }
 
-function initProjectExpand(track) {
-  if (!track || track.dataset.expandInit) return;
-  track.dataset.expandInit = "true";
+function initProjectHover(carousel, track) {
+  const viewport = carousel.querySelector(".project-viewport");
+  if (!track || !viewport || track.dataset.hoverInit) return;
+  track.dataset.hoverInit = "true";
 
-  track.addEventListener(
-    "click",
-    (e) => {
-      if (e.target.closest(".carousel-btn")) return;
-      const block = e.target.closest(".project-block");
-      if (!block) return;
-      if (!window.matchMedia("(hover: none)").matches) return;
+  function visibleRange() {
+    const state = carousel._carouselState ?? { page: 0 };
+    const visible = getVisibleCount();
+    const start = state.page ?? 0;
+    return { start, end: start + visible - 1 };
+  }
 
-      const blocks = [...track.querySelectorAll(".project-block")];
-      const expanded = block.classList.contains("is-expanded");
-      blocks.forEach((b) => b.classList.remove("is-expanded"));
-      track.classList.toggle("is-active", !expanded);
-      if (!expanded) block.classList.add("is-expanded");
-    },
-    { passive: true },
-  );
+  function setInteraction(block) {
+    const blocks = [...track.querySelectorAll(".project-block")];
+    const { start, end } = visibleRange();
+
+    if (!block) {
+      clearInteraction(track);
+      return;
+    }
+
+    const idx = blocks.indexOf(block);
+    if (idx < start || idx > end) {
+      clearInteraction(track);
+      return;
+    }
+
+    track.classList.add("is-interacting");
+    blocks.forEach((b, i) => {
+      const inView = i >= start && i <= end;
+      b.classList.toggle("is-expanded", b === block && inView);
+      b.classList.toggle("is-dimmed", b !== block && inView);
+      if (!inView) b.classList.remove("is-expanded", "is-dimmed");
+    });
+  }
+
+  viewport.addEventListener("mouseleave", () => clearInteraction(track));
+
+  viewport.addEventListener("mouseover", (e) => {
+    const block = e.target.closest(".project-block");
+    setInteraction(block);
+  });
+
+  track.addEventListener("click", (e) => {
+    if (e.target.closest(".carousel-btn")) return;
+    if (!window.matchMedia("(hover: none)").matches) return;
+    const block = e.target.closest(".project-block");
+    if (!block) return;
+    if (block.classList.contains("is-expanded")) clearInteraction(track);
+    else setInteraction(block);
+  });
 }
 
 function initCarousel(carousel, projectCount, ui, lang) {
@@ -96,15 +141,17 @@ function initCarousel(carousel, projectCount, ui, lang) {
   carousel._carouselState.projectCount = projectCount;
 
   carousel._carouselUpdate = () => {
+    clearInteraction(track);
+
     const visible = getVisibleCount();
     const maxPage = Math.max(0, carousel._carouselState.projectCount - visible);
     carousel._carouselState.maxPage = maxPage;
     carousel._carouselState.page = Math.min(carousel._carouselState.page, maxPage);
 
     const { page } = carousel._carouselState;
-    const panel = viewport.querySelector(".project-block")?.offsetWidth ?? 0;
+    const panelWidth = getPanelWidth(viewport);
     const gap = parseFloat(getComputedStyle(track).gap) || 3;
-    const offset = page * (panel + gap);
+    const offset = page * (panelWidth + gap);
     track.style.transform = `translateX(${-offset}px)`;
 
     prevBtn.hidden = page <= 0;
@@ -124,15 +171,15 @@ function renderProjects(projects, lang, ui) {
 
   track.innerHTML = "";
   track.style.transform = "translateX(0)";
-  track.classList.remove("is-active");
-  track.dataset.expandInit = "";
+  track.classList.remove("is-interacting");
+  track.dataset.hoverInit = "";
 
   for (const project of projects) {
     track.append(buildProjectBlock(project, lang));
   }
 
-  initProjectExpand(track);
   initCarousel(carousel, projects.length, ui, lang);
+  initProjectHover(carousel, track);
 }
 
 async function main() {
