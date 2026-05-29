@@ -1,7 +1,10 @@
 import { el, initLangToggle, loadContent, setupTopBar, t } from "./common.js";
 
-const VISIBLE_COUNT = 4;
-const SLIDE_STEP = 2;
+function getVisibleCount() {
+  return window.matchMedia("(max-width: 768px) and (orientation: portrait)").matches
+    ? 3
+    : 4;
+}
 
 function getCategoryId() {
   return new URLSearchParams(window.location.search).get("c");
@@ -20,15 +23,17 @@ function buildProjectBlock(project, lang) {
       : String(kw?.[lang] ?? kw?.zh ?? kw?.en ?? "");
 
   return el("article", { class: "project-block" }, [
-    el("img", {
-      class: "project-image",
-      src: project.image,
-      alt: t(project.name, lang),
-      loading: "lazy",
-    }),
-    el("div", { class: "project-caption" }, [
-      el("h2", { class: "project-name", text: t(project.name, lang) }),
-      el("p", { class: "project-meta", text: `${project.year ?? ""} · ${keywords}` }),
+    el("div", { class: "project-block-inner" }, [
+      el("img", {
+        class: "project-image",
+        src: project.image,
+        alt: t(project.name, lang),
+        loading: "lazy",
+      }),
+      el("div", { class: "project-caption" }, [
+        el("h2", { class: "project-name", text: t(project.name, lang) }),
+        el("p", { class: "project-meta", text: `${project.year ?? ""} · ${keywords}` }),
+      ]),
     ]),
   ]);
 }
@@ -43,6 +48,7 @@ function initProjectExpand(track) {
       if (e.target.closest(".carousel-btn")) return;
       const block = e.target.closest(".project-block");
       if (!block) return;
+      if (!window.matchMedia("(hover: none)").matches) return;
 
       const blocks = [...track.querySelectorAll(".project-block")];
       const expanded = block.classList.contains("is-expanded");
@@ -61,8 +67,6 @@ function initCarousel(carousel, projectCount, ui, lang) {
   const viewport = carousel.querySelector(".project-viewport");
   if (!track || !prevBtn || !nextBtn || !viewport) return;
 
-  const maxPage = Math.max(0, Math.ceil((projectCount - VISIBLE_COUNT) / SLIDE_STEP));
-
   if (!carousel._carouselState) {
     carousel._carouselState = { page: 0 };
 
@@ -72,7 +76,10 @@ function initCarousel(carousel, projectCount, ui, lang) {
     });
 
     nextBtn.addEventListener("click", () => {
-      carousel._carouselState.page = Math.min(maxPage, carousel._carouselState.page + 1);
+      carousel._carouselState.page = Math.min(
+        carousel._carouselState.maxPage,
+        carousel._carouselState.page + 1,
+      );
       carousel._carouselUpdate();
     });
 
@@ -86,18 +93,23 @@ function initCarousel(carousel, projectCount, ui, lang) {
   }
 
   carousel._carouselState.page = 0;
-  carousel._carouselState.maxPage = maxPage;
+  carousel._carouselState.projectCount = projectCount;
 
   carousel._carouselUpdate = () => {
+    const visible = getVisibleCount();
+    const maxPage = Math.max(0, carousel._carouselState.projectCount - visible);
+    carousel._carouselState.maxPage = maxPage;
+    carousel._carouselState.page = Math.min(carousel._carouselState.page, maxPage);
+
     const { page } = carousel._carouselState;
     const panel = viewport.querySelector(".project-block")?.offsetWidth ?? 0;
-    const gap = 3;
-    const offset = page * SLIDE_STEP * (panel + gap);
+    const gap = parseFloat(getComputedStyle(track).gap) || 3;
+    const offset = page * (panel + gap);
     track.style.transform = `translateX(${-offset}px)`;
 
     prevBtn.hidden = page <= 0;
-    nextBtn.hidden = page >= carousel._carouselState.maxPage;
-    carousel.classList.toggle("has-nav", carousel._carouselState.maxPage > 0);
+    nextBtn.hidden = page >= maxPage;
+    carousel.classList.toggle("has-nav", maxPage > 0);
   };
 
   prevBtn.setAttribute("aria-label", t(ui.prevProjects, lang));

@@ -393,18 +393,23 @@ button {
   min-width: var(--panel);
   height: 100%;
   overflow: hidden;
-  transition: flex-basis 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-    min-width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-viewport:hover .project-block {
-  flex-basis: calc(var(--panel) * 0.55);
-  min-width: calc(var(--panel) * 0.55);
+.project-block-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
 }
 
-.project-viewport:hover .project-block:hover {
-  flex-basis: calc(var(--panel) * 2.35);
-  min-width: calc(var(--panel) * 2.35);
+.project-block:hover {
+  z-index: 2;
+}
+
+.project-block:hover .project-block-inner {
+  transform: scale(1.04);
 }
 
 .project-image {
@@ -412,11 +417,6 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-block:hover .project-image {
-  transform: scale(1.03);
 }
 
 .project-caption {
@@ -518,6 +518,12 @@ button {
 
 /* ── Responsive ── */
 
+@media (max-width: 768px) and (orientation: portrait) {
+  .project-viewport {
+    --visible: 3;
+  }
+}
+
 @media (max-width: 768px) {
   .top-bar {
     padding: 16px 18px;
@@ -549,20 +555,8 @@ button {
     padding: 16px 12px;
   }
 
-  .project-viewport:hover .project-block,
-  .project-viewport:hover .project-block:hover {
-    flex-basis: var(--panel);
-    min-width: var(--panel);
-  }
-
-  .project-track.is-active .project-block {
-    flex-basis: calc(var(--panel) * 0.55);
-    min-width: calc(var(--panel) * 0.55);
-  }
-
-  .project-track.is-active .project-block.is-expanded {
-    flex-basis: calc(var(--panel) * 2.35);
-    min-width: calc(var(--panel) * 2.35);
+  .project-track.is-active .project-block.is-expanded .project-block-inner {
+    transform: scale(1.04);
   }
 
   .carousel-btn {

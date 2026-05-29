@@ -72,40 +72,49 @@
       ],
       "projects": [
         {
-          "name": { "zh": "光之回路", "en": "Light Circuit" },
+          "name": { "zh": "可听", "en": "HearAble" },
           "year": "2025",
-          "keywords": { "zh": ["光影", "传感器", "公共空间"], "en": ["Light", "Sensor", "Public space"] },
-          "image": "./images/placeholders/brand-1.svg"
+          "keywords": {
+            "zh": ["听障友好", "音乐交互", "声音处理", "包容性设计"],
+            "en": ["Hearing impaired", "Music interaction", "Sound processing", "Inclusive design"]
+          },
+          "image": "./images/projects/interaction-design/hearable.png"
         },
         {
-          "name": { "zh": "健康追踪", "en": "Health Tracker" },
+          "name": { "zh": "织动", "en": "WEAVE FIT" },
           "year": "2025",
-          "keywords": { "zh": ["移动端", "数据", "可视化"], "en": ["Mobile", "Data", "Visualization"] },
-          "image": "./images/placeholders/sound-1.svg"
+          "keywords": {
+            "zh": ["AR", "健身", "织造", "体验式交互"],
+            "en": ["AR", "Fitness", "Weaving", "Experiential interaction"]
+          },
+          "image": "./images/projects/interaction-design/weave-fit.png"
         },
         {
-          "name": { "zh": "无障碍导览", "en": "Accessible Guide" },
+          "name": { "zh": "电生", "en": "Elecbio" },
           "year": "2024",
-          "keywords": { "zh": ["无障碍", "导航", "博物馆"], "en": ["Accessibility", "Wayfinding", "Museum"] },
-          "image": "./images/placeholders/install-1.svg"
+          "keywords": {
+            "zh": ["电子废弃物", "未来设计", "生态修复", "可持续"],
+            "en": ["E-waste", "Future design", "Ecological restoration", "Sustainability"]
+          },
+          "image": "./images/projects/interaction-design/elecbio.png"
         },
         {
-          "name": { "zh": "明日栖居", "en": "Tomorrow's Habitat" },
+          "name": { "zh": "声荫", "en": "Noise Shelter" },
           "year": "2024",
-          "keywords": { "zh": ["推测设计", "生态", "居住"], "en": ["Speculative", "Ecology", "Living"] },
-          "image": "./images/placeholders/future-1.svg"
+          "keywords": {
+            "zh": ["噪声治理", "公共空间", "绿地再生", "城市"],
+            "en": ["Noise mitigation", "Public space", "Green space reuse", "Urban"]
+          },
+          "image": "./images/projects/interaction-design/noise-shelter.png"
         },
         {
-          "name": { "zh": "流动边界", "en": "Fluid Boundary" },
-          "year": "2024",
-          "keywords": { "zh": ["运动捕捉", "投影", "身体"], "en": ["Motion capture", "Projection", "Body"] },
-          "image": "./images/placeholders/brand-2.svg"
-        },
-        {
-          "name": { "zh": "气候界面", "en": "Climate Interface" },
+          "name": { "zh": "焊音", "en": "DIY Synthesizer" },
           "year": "2023",
-          "keywords": { "zh": ["数据可视化", "预警", "城市"], "en": ["Data viz", "Alert", "Urban"] },
-          "image": "./images/placeholders/future-2.svg"
+          "keywords": {
+            "zh": ["DIY", "合成器", "硬件制作", "声音装置"],
+            "en": ["DIY", "Synthesizer", "Hardware", "Sound device"]
+          },
+          "image": "./images/projects/interaction-design/diy-synthesizer.png"
         }
       ]
     }
